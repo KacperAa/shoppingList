@@ -1,0 +1,32 @@
+<ng-container [formGroup]="formGroupFromFormComponent">
+  <mat-form-field>
+    <mat-label>Choose Product</mat-label>
+
+    <mat-select formControlName="product">
+      <input
+        autocomplete="off"
+        name="product"
+        matInput
+        type="text"
+        (keyup)="keyUpHandler($event)"
+        placeholder="Search product..."
+      />
+
+      <mat-option
+        [disabled]="filteredProducts() === productNotExsist"
+        *ngFor="let product of filteredProducts()"
+        [value]="product"
+      >
+        <div class="name-and-product-icon-box">
+          <div>{{ product.name }}</div>
+          <div>
+            <img
+              class="name-and-product-icon-box__product-icon-in-option"
+              [src]="product.icon"
+            />
+          </div>
+        </div>
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</ng-container>

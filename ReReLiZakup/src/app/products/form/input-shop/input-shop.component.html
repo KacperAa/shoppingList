@@ -1,0 +1,35 @@
+<ng-container [formGroup]="formGroupFromFormComponent">
+  <mat-form-field>
+    <mat-label>Choose shop</mat-label>
+
+    <mat-select formControlName="shop">
+      <input
+        autocomplete="off"
+        name="shop"
+        matInput
+        type="text"
+        (keyup)="keyUpHandler($event)"
+        placeholder="Search shop.."
+      />
+
+      <mat-option
+        [disabled]="filteredShops() === shopNotExsist"
+        *ngFor="let shop of filteredShops()"
+        [value]="shop"
+      >
+        <div class="hide-name-in-options">{{ shop.name }}</div>
+
+        <img
+          *ngIf="filteredShops() !== shopNotExsist"
+          class="shop-icon-in-select"
+          [src]="shop.icon"
+        />
+        <img
+          *ngIf="filteredShops() === shopNotExsist"
+          class="shop-icon-in-select-no-shops"
+          [src]="shop.icon"
+        />
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</ng-container>

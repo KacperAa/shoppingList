@@ -1,0 +1,8 @@
+.name-and-product-icon-box {
+  display: flex;
+  justify-content: space-between;
+
+  &__product-icon-in-option {
+    height: 22px;
+  }
+}

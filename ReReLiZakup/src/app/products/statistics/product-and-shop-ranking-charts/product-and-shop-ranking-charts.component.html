@@ -1,0 +1,73 @@
+<div class="container">
+  <div>
+    <mat-tab-group class="products-and-shops-charts" dynamicHeight>
+      <mat-tab>
+        <ng-template mat-tab-label
+          ><span
+            [ngClass]="{
+              'products-and-shops-charts__dark-mode': darkMode
+            }"
+            >Products Statistics</span
+          ></ng-template
+        >
+        <div
+          class="products-and-shops-charts__when-no-data-messange"
+          *ngIf="summedPurchasedProducts.length === 0"
+        >
+          Mark products as purchased if you want to see the data
+        </div>
+        <ng-container *ngIf="summedPurchasedProducts.length > 0">
+          <ngx-charts-bar-vertical
+            [view]="view"
+            [scheme]="colorScheme"
+            [results]="resultsInProductsChart"
+            [gradient]="gradient"
+            [xAxis]="showXAxis"
+            [yAxis]="showYAxis"
+            [legend]="showLegend"
+            [showXAxisLabel]="showXAxisLabel"
+            [showYAxisLabel]="showYAxisLabel"
+            [xAxisLabel]="'Quantity Sum'"
+            [yAxisLabel]="'Product Name'"
+            [style]="darkMode ? 'fill: white' : 'fill: black'"
+          >
+          </ngx-charts-bar-vertical>
+        </ng-container>
+      </mat-tab>
+
+      <mat-tab>
+        <ng-template mat-tab-label
+          ><span
+            [ngClass]="{
+              'products-and-shops-charts__dark-mode': darkMode
+            }"
+            >Shops Statistics</span
+          ></ng-template
+        >
+        <div
+          class="products-and-shops-charts__when-no-data-messange"
+          *ngIf="purchasedProductsSumInStore.length === 0"
+        >
+          Mark products as purchased if you want to see the data
+        </div>
+        <ng-container *ngIf="purchasedProductsSumInStore.length > 0">
+          <ngx-charts-bar-vertical
+            [view]="view"
+            [scheme]="colorScheme"
+            [results]="resultsInShopsChart"
+            [gradient]="gradient"
+            [xAxis]="showXAxis"
+            [yAxis]="showYAxis"
+            [legend]="showLegend"
+            [showXAxisLabel]="showXAxisLabel"
+            [showYAxisLabel]="showYAxisLabel"
+            [xAxisLabel]="'Purchased Products'"
+            [yAxisLabel]="'Shop Name'"
+            [style]="darkMode ? 'fill: white' : 'fill: black'"
+          >
+          </ngx-charts-bar-vertical>
+        </ng-container>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

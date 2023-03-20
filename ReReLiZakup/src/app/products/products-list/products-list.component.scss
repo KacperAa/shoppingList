@@ -1,0 +1,78 @@
+.container {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+  &__empty-list {
+    color: gray;
+    font-style: italic;
+  }
+
+  .mat-tree {
+    border-radius: 10px 10px 0px 0px;
+    overflow: hidden;
+  }
+
+  .product-node-lvl-two {
+    flex-wrap: wrap;
+    gap: 10px;
+    border-bottom: 1px solid #c2c2c2;
+
+    &__name-and-quantity-box {
+      font-weight: 700;
+      width: 15vh;
+    }
+
+    &__icon-lvl-two {
+      height: 25px;
+    }
+  }
+
+  .product-node-lvl-two-if-product-is-buy {
+    border-bottom: none;
+    background-color: #77b177;
+    opacity: 0.5;
+  }
+  .shop-and-type-node-lvl-zero-and-one {
+    background-color: #fffff0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(194, 194, 194);
+
+    &__node-button-name-sum-and-title-box {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      &__sum-and-title {
+        gap: 3px;
+        display: flex;
+        color: gray;
+        font-style: italic;
+        font-size: 12px;
+      }
+    }
+    &__quantity-and-title-lvl-zero-and-one-box {
+      display: flex;
+      gap: 3px;
+    }
+    &__icon-lvl-zero {
+      height: 50px;
+      width: 120px;
+    }
+    &__icon-lvl-one {
+      height: 50px;
+    }
+  }
+
+  .shop-and-type-node-lvl-zero-and-one-dark-mode {
+    background-color: #c8c8af;
+    border-bottom: 1px solid rgb(136, 130, 130, 1);
+  }
+
+  .shop-and-type-node-lvl-two-dark-mode {
+    background-color: #c8c8af;
+    border-bottom: 1px solid rgb(136, 130, 130, 1);
+  }
+}

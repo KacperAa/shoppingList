@@ -1,0 +1,16 @@
+.list-box {
+  display: flex;
+  flex-wrap: wrap;
+  position: fixed;
+  left: 0;
+  top: 5%;
+  z-index: 1;
+
+  &__nav-button-dark-mode {
+    color: white;
+  }
+}
+
+.active-page-expand-nav {
+  background-color: rgb(215, 213, 213);
+}

@@ -1,0 +1,21 @@
+.ranking-table {
+  display: flex;
+  flex-direction: column;
+
+  &__icon {
+    height: 30px;
+  }
+  &__when-no-data-messange {
+    display: flex;
+    justify-content: space-around;
+    padding: 10%;
+    color: gray;
+    opacity: 0.6;
+  }
+
+  &__table-dark-mode {
+    background-color: #c8c8af;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+}

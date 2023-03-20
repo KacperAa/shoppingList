@@ -1,0 +1,93 @@
+<div class="container">
+  <button
+    mat-raised-button
+    [color]="darkMode ? 'accent' : 'primary'"
+    routerLink="/addProducts"
+  >
+    <mat-icon>search</mat-icon> Find Product
+  </button>
+
+  <div class="container__empty-list" *ngIf="productTreeLengthHolder === 0">
+    This list is empty! Click find to add products!
+  </div>
+
+  <mat-tree
+    class="container__mat-tree"
+    [dataSource]="productDataSource"
+    [treeControl]="productTreeControler"
+  >
+    <!-- NODE LVL TWO -->
+    <mat-tree-node
+      [@isBuyAnimation]="product.isBuy ? 'open' : 'closed'"
+      *matTreeNodeDef="let product; when: !nodeHasChild"
+      [matTreeNodePadding]="changedView ? 0 : 2"
+      class="product-node-lvl-two"
+      [ngClass]="{ 'shop-and-type-node-lvl-two-dark-mode': darkMode }"
+      ><button mat-icon-button></button>
+      <div class="product-node-lvl-two__name-and-quantity-box">
+        {{ product.name }} {{ product.quantity + " " + "szt" }}
+      </div>
+
+      <div>
+        <img class="product-node-lvl-two__icon-lvl-two" [src]="product.icon" />
+      </div>
+
+      <div>
+        <button
+          (click)="productIsBuy(product)"
+          [disabled]="product.isBuy"
+          mat-icon-button
+        >
+          <mat-icon>done</mat-icon>
+        </button>
+        <button (click)="deleteProduct(product)" mat-icon-button>
+          <mat-icon>delete_forever</mat-icon>
+        </button>
+      </div></mat-tree-node
+    >
+    <!-- NODE LVL ZERO AND ONE -->
+    <mat-tree-node
+      class="shop-and-type-node-lvl-zero-and-one"
+      [ngClass]="{ 'shop-and-type-node-lvl-zero-and-one-dark-mode': darkMode }"
+      *matTreeNodeDef="let shopOrType; when: nodeHasChild"
+      matTreeNodePadding
+      ><div
+        class="shop-and-type-node-lvl-zero-and-one__node-button-name-sum-and-title-box"
+      >
+        <button
+          (click)="onNodeClick(shopOrType)"
+          mat-icon-button
+          matTreeNodeToggle
+          [attr.aria-label]="'Toggle' + shopOrType.name"
+        >
+          <mat-icon class="mat-icon-rtl-mirror">{{
+            productTreeControler.isExpanded(shopOrType)
+              ? "expand_more"
+              : "chevron_right"
+          }}</mat-icon>
+        </button>
+
+        <div>{{ shopOrType.name }}</div>
+        <div
+          class="shop-and-type-node-lvl-zero-and-one__node-button-name-sum-and-title-box__sum-and-title"
+        >
+          <div>{{ shopOrType.sum }}</div>
+          <div>{{ shopOrType.title }}</div>
+        </div>
+      </div>
+
+      <div *ngIf="shopOrType.level === 0">
+        <img
+          class="shop-and-type-node-lvl-zero-and-one__icon-lvl-zero"
+          [src]="shopOrType.icon"
+        />
+      </div>
+      <div *ngIf="shopOrType.level === 1">
+        <img
+          class="shop-and-type-node-lvl-zero-and-one__icon-lvl-one"
+          [src]="shopOrType.icon"
+        />
+      </div>
+    </mat-tree-node>
+  </mat-tree>
+</div>

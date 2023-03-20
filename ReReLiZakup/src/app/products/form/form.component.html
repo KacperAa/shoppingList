@@ -1,0 +1,40 @@
+<div class="container">
+  <form [formGroup]="productsForm" (ngSubmit)="addProductToList()">
+    <app-resizable-draggable [productFormIsValid]="productFormIsValid">
+    </app-resizable-draggable>
+    <div class="form-box" [ngClass]="{ 'form-box-dark-mode': darkMode }">
+      <app-input-product
+        [formGroupFromFormComponent]="productsForm"
+      ></app-input-product>
+      <app-invalid-messages
+        [formControlNameString]="'product'"
+        [productFormControl]="product"
+      ></app-invalid-messages>
+
+      <app-quantity-product
+        [formGroupFromFormComponent]="productsForm"
+      ></app-quantity-product>
+      <app-invalid-messages
+        [formControlNameString]="'quantity'"
+        [productFormControl]="quantity"
+      ></app-invalid-messages>
+
+      <app-input-shop
+        [formGroupFromFormComponent]="productsForm"
+      ></app-input-shop>
+      <app-invalid-messages
+        [formControlNameString]="'shop'"
+        [productFormControl]="shop"
+      ></app-invalid-messages>
+
+      <div class="form-box__add-and-go-to-list-buttons-box">
+        <button mat-raised-button color="accent" type="submit">
+          Add product <mat-icon>add</mat-icon>
+        </button>
+        <button mat-raised-button routerLink="/productsList">
+          Go to products list <mat-icon>arrow_right_alt</mat-icon>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

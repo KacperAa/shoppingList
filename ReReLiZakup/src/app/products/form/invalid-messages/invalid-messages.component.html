@@ -1,0 +1,19 @@
+<div
+  class="invalid-messages"
+  *ngIf="
+    productFormControl?.invalid &&
+    (productFormControl?.touched || productFormControl?.dirty)
+  "
+>
+  <div *ngIf="productFormControl?.errors?.['required']">
+    This field is required!
+  </div>
+
+  <ng-container *ngIf="formControlNameString === 'quantity'">
+    <div *ngIf=" productFormControl?.errors?.['max'] ">Max value is 999!</div>
+    <div *ngIf="productFormControl?.errors?.['min']">Min value is 1.</div>
+    <div *ngIf="productFormControl?.errors?.['pattern']">
+      Only integers can be added.
+    </div>
+  </ng-container>
+</div>

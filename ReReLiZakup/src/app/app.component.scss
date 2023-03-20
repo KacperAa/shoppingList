@@ -1,0 +1,20 @@
+.container {
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 0 5% 0 5%;
+}
+
+.container-if-low-resolution {
+  padding: 0 15% 0 15%;
+}
+
+.dark-mode {
+  background-color: rgb(44, 38, 38);
+
+  * {
+    color: rgb(223, 228, 217);
+  }
+}

@@ -1,0 +1,68 @@
+<nav>
+  <button (click)="expandNavigation()" mat-icon-button>
+    <mat-icon>subject</mat-icon>
+  </button>
+  <div
+    class="list-box"
+    [@navigationSlideOut]="expandedNavigation ? 'closed' : 'open'"
+  >
+    <mat-list *ngIf="expandedNavigation" role="list">
+      <mat-list-item role="listitem">
+        <a>
+          <button
+            mat-button
+            [ngClass]="{
+              'list-box__nav-button-dark-mode': darkMode
+            }"
+            routerLink="/productsList"
+            routerLinkActive="active-page-expand-nav"
+          >
+            <mat-icon>list</mat-icon>
+          </button>
+        </a></mat-list-item
+      >
+      <mat-list-item role="listitem">
+        <a
+          ><button
+            mat-button
+            [ngClass]="{
+              'list-box__nav-button-dark-mode': darkMode
+            }"
+            routerLink="/addProducts"
+            routerLinkActive="active-page-expand-nav"
+          >
+            <mat-icon>search</mat-icon>
+          </button>
+        </a></mat-list-item
+      >
+      <mat-list-item role="listitem">
+        <a
+          ><button
+            mat-button
+            [ngClass]="{
+              'list-box__nav-button-dark-mode': darkMode
+            }"
+            routerLink="/statistics"
+            routerLinkActive="active-page-expand-nav"
+          >
+            <mat-icon>assessment</mat-icon>
+          </button></a
+        ></mat-list-item
+      >
+      <mat-list-item role="listitem">
+        <a>
+          <button
+            mat-button
+            [ngClass]="{
+              'list-box__nav-button-dark-mode': darkMode
+            }"
+            routerLink="/settings"
+            routerLinkActive="active-page-expand-nav"
+          >
+            <mat-icon>settings</mat-icon>
+          </button>
+        </a></mat-list-item
+      >
+    </mat-list>
+  </div>
+</nav>

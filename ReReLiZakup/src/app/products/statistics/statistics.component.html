@@ -1,0 +1,27 @@
+<div class="container">
+  <mat-tab-group [color]="darkMode ? 'accent' : 'primary'">
+    <mat-tab>
+      <ng-template mat-tab-label
+        ><span [ngClass]="{ 'dark-mode': darkMode }"
+          >Product Ranking</span
+        ></ng-template
+      >
+      <app-product-ranking></app-product-ranking>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label
+        ><span [ngClass]="{ 'dark-mode': darkMode }"
+          >Shops Ranking</span
+        ></ng-template
+      >
+      <app-shop-ranking></app-shop-ranking>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label
+        ><span [ngClass]="{ 'dark-mode': darkMode }">Charts</span></ng-template
+      >
+      <app-product-and-shop-ranking-charts></app-product-and-shop-ranking-charts>
+    </mat-tab>
+  </mat-tab-group>
+</div>

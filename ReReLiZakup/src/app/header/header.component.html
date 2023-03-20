@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="logo-and-nav-box">
+    <img class="logo-and-nav-box__logo" src="assets/Logo/sh-logo.png" />
+    <app-expendable-nav *ngIf="showedNav"></app-expendable-nav>
+    <app-main-nav *ngIf="!showedNav"></app-main-nav>
+  </div>
+  <app-social-media-links></app-social-media-links>
+</div>
